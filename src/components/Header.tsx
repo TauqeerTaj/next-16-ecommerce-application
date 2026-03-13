@@ -3,11 +3,16 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
-import { useLanguage } from "@/src/contexts/LanguageContext";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState, AppDispatch } from "@/src/store";
+import { setLanguage } from "@/src/store/languageSlice";
 
 export default function Header() {
   const [searchQuery, setSearchQuery] = useState("");
-  const { currentLang, setLanguage } = useLanguage();
+  const currentLang = useSelector(
+    (state: RootState) => state.language.currentLang,
+  );
+  const dispatch = useDispatch<AppDispatch>();
   const pathname = usePathname();
 
   const handleSearch = () => {
@@ -16,7 +21,7 @@ export default function Header() {
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newLang = e.target.value;
-    setLanguage(newLang);
+    dispatch(setLanguage(newLang));
     console.log("Language changed to:", newLang);
   };
 

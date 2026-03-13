@@ -2,12 +2,15 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { useLanguage } from "@/src/contexts/LanguageContext";
+import { useSelector } from "react-redux";
+import { RootState } from "@/src/store";
 import { usePathname } from "next/navigation";
 
 export default function Footer() {
   const [newsletterEmail, setNewsletterEmail] = useState("");
-  const { currentLang } = useLanguage();
+  const currentLang = useSelector(
+    (state: RootState) => state.language.currentLang,
+  );
   const pathname = usePathname();
 
   // Simple translation function (same as Header)
