@@ -15,6 +15,23 @@ export default function SignupComponent() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
+  const handleGoogleSignIn = async () => {
+    console.log("Google sign-in clicked");
+    try {
+      const result = await signIn("google", { redirect: false });
+      console.log("Google sign-in result:", result);
+      if (result?.error) {
+        toast.error(result.error);
+      } else {
+        toast.success("Google sign-in successful!");
+        router.push("/");
+      }
+    } catch (error) {
+      console.error("Google sign-in error:", error);
+      toast.error("Google sign-in failed");
+    }
+  };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -122,6 +139,7 @@ export default function SignupComponent() {
 
                 <button
                   type="button"
+                  onClick={handleGoogleSignIn}
                   className="w-full bg-white border border-gray-300 py-3 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors flex items-center justify-center space-x-2"
                 >
                   <svg className="w-5 h-5" viewBox="0 0 24 24">

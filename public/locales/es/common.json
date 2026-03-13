@@ -1,0 +1,37 @@
+{
+  "header": {
+    "title": "Exclusivo",
+    "summerSale": "Venta de Verano Para Todos los Trajes de Baño y Envío Express Gratis - 50% DESC",
+    "shopNow": "CompraAhora",
+    "home": "Inicio",
+    "contact": "Contacto",
+    "about": "Acerca de",
+    "signUp": "Registrarse",
+    "searchPlaceholder": "¿Qué estás buscando?",
+    "wishlist": "Lista de Deseos",
+    "cart": "Carrito",
+    "account": "Cuenta"
+  },
+  "auth": {
+    "loginTitle": "Iniciar sesión en Exclusivo",
+    "loginSubtitle": "Ingresa tus detalles abajo",
+    "emailOrPhone": "Email o Teléfono",
+    "password": "Contraseña",
+    "loginButton": "Iniciar Sesión",
+    "forgetPassword": "¿Olvidaste la contraseña?",
+    "signUpTitle": "Crear una Cuenta",
+    "signUpSubtitle": "Ingresa tus detalles abajo",
+    "name": "Nombre",
+    "createAccount": "Crear Cuenta",
+    "alreadyHaveAccount": "¿Ya tienes una cuenta?",
+    "signInWithGoogle": "Iniciar sesión con Google"
+  },
+  "products": {
+    "addToCart": "Agregar al Carrito",
+    "outOfStock": "Agotado",
+    "inStock": "Disponible",
+    "price": "Precio",
+    "quantity": "Cantidad",
+    "description": "Descripción"
+  }
+}
