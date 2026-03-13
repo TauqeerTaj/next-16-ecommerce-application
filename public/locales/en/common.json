@@ -1,0 +1,37 @@
+{
+  "header": {
+    "title": "Exclusive",
+    "summerSale": "Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%",
+    "shopNow": "ShopNow",
+    "home": "Home",
+    "contact": "Contact",
+    "about": "About",
+    "signUp": "Sign Up",
+    "searchPlaceholder": "What are you looking for?",
+    "wishlist": "Wishlist",
+    "cart": "Cart",
+    "account": "Account"
+  },
+  "auth": {
+    "loginTitle": "Log in to Exclusive",
+    "loginSubtitle": "Enter your details below",
+    "emailOrPhone": "Email or Phone Number",
+    "password": "Password",
+    "loginButton": "Log In",
+    "forgetPassword": "Forget Password?",
+    "signUpTitle": "Create an Account",
+    "signUpSubtitle": "Enter your details below",
+    "name": "Name",
+    "createAccount": "Create Account",
+    "alreadyHaveAccount": "Already have account?",
+    "signInWithGoogle": "Sign in with Google"
+  },
+  "products": {
+    "addToCart": "Add to Cart",
+    "outOfStock": "Out of Stock",
+    "inStock": "In Stock",
+    "price": "Price",
+    "quantity": "Quantity",
+    "description": "Description"
+  }
+}

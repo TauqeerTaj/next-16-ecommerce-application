@@ -1,0 +1,37 @@
+{
+  "header": {
+    "title": "Exclusif",
+    "summerSale": "Vente d'Été Pour Tous les Maillots de Bain et Livraison Express Gratuite - 50% DE RÉDUCTION",
+    "shopNow": "AchetezMaintenant",
+    "home": "Accueil",
+    "contact": "Contact",
+    "about": "À Propos",
+    "signUp": "S'inscrire",
+    "searchPlaceholder": "Que cherchez-vous?",
+    "wishlist": "Liste de Souhaits",
+    "cart": "Panier",
+    "account": "Compte"
+  },
+  "auth": {
+    "loginTitle": "Se connecter à Exclusif",
+    "loginSubtitle": "Entrez vos détails ci-dessous",
+    "emailOrPhone": "Email ou Téléphone",
+    "password": "Mot de passe",
+    "loginButton": "Se Connecter",
+    "forgetPassword": "Mot de passe oublié?",
+    "signUpTitle": "Créer un Compte",
+    "signUpSubtitle": "Entrez vos détails ci-dessous",
+    "name": "Nom",
+    "createAccount": "Créer un Compte",
+    "alreadyHaveAccount": "Vous avez déjà un compte?",
+    "signInWithGoogle": "Se connecter avec Google"
+  },
+  "products": {
+    "addToCart": "Ajouter au Panier",
+    "outOfStock": "Rupture de Stock",
+    "inStock": "Disponible",
+    "price": "Prix",
+    "quantity": "Quantité",
+    "description": "Description"
+  }
+}

@@ -1,15 +1,33 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
 import connectDB from "@/lib/mongodb";
 import User from "@/lib/models/User";
 import bcrypt from "bcryptjs";
 
-const hash = await bcrypt.hash("11223344", 12);
-const result = await bcrypt.compare("11223344", hash);
-console.log("resultsss", result);
+// Debug environment variables
+console.log(
+  "Google Client ID:",
+  process.env.GOOGLE_CLIENT_ID ? "Found" : "Not found"
+);
+console.log(
+  "Google Client Secret:",
+  process.env.GOOGLE_CLIENT_SECRET ? "Found" : "Not found"
+);
 
 const handler = NextAuth({
   providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID || "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
+      authorization: {
+        params: {
+          prompt: "consent",
+          access_type: "offline",
+          response_type: "code",
+        },
+      },
+    }),
     CredentialsProvider({
       name: "credentials",
       credentials: {
@@ -35,15 +53,28 @@ const handler = NextAuth({
           const email = isEmail ? emailOrPhone.toLowerCase() : undefined;
           const phone = isEmail ? undefined : emailOrPhone;
 
-          // Find user by email or phone
-          const user = await User.findOne({
-            $or: [{ email: email }, { phone: phone }],
-          }).select("+password");
+          console.log("Input emailOrPhone:", emailOrPhone);
+          console.log("Processed email:", email);
+          console.log("Processed phone:", phone);
+
+          // Find user by email or phone (direct query to avoid issues)
+          let user = null;
+          if (email) {
+            user = await User.findOne({ email: email }).select("+password");
+          } else if (phone) {
+            user = await User.findOne({ phone: phone }).select("+password");
+          }
 
           console.log("User found:", user ? "yes" : "no");
+          console.log("Name provided:", name ? "yes" : "no");
+          console.log("Search query:", { email, phone });
+          console.log(
+            "Found user:",
+            user ? JSON.stringify(user.email) : "null"
+          );
 
-          // If user exists and name is provided, this is a login attempt
-          if (user && !name) {
+          // If user exists and no name is provided, this is a login attempt
+          if (user && (!name || name === "")) {
             console.log("Login attempt - checking password");
 
             // Check if password is hashed
@@ -137,7 +168,33 @@ const handler = NextAuth({
     strategy: "jwt",
   },
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user, account }) {
+      if (account?.provider === "google" && user) {
+        // Handle Google sign-in
+        try {
+          await connectDB();
+
+          // Check if user already exists
+          const existingUser = await User.findOne({ email: user.email });
+
+          if (!existingUser) {
+            // Create new user from Google data
+            const newUser = new User({
+              name: user.name,
+              email: user.email,
+              phone: null,
+              password: null, // Google users don't have passwords
+              googleId: user.id, // Store Google user ID
+            });
+
+            await newUser.save();
+            console.log("Google user created:", newUser._id);
+          }
+        } catch (error) {
+          console.error("Google auth error:", error);
+        }
+      }
+
       if (user) {
         token.id = user.id;
         token.phone = user.phone;
