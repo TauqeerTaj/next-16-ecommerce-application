@@ -2,90 +2,13 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { useLanguage } from "@/src/contexts/LanguageContext";
 import { usePathname } from "next/navigation";
+import { useTranslation } from "@/src/hooks/useTranslation";
 
 export default function Footer() {
   const [newsletterEmail, setNewsletterEmail] = useState("");
-  const { currentLang } = useLanguage();
+  const { t } = useTranslation();
   const pathname = usePathname();
-
-  // Simple translation function (same as Header)
-  const t = (key: string): string => {
-    const translations = {
-      en: {
-        header: {
-          title: "Exclusive",
-        },
-        footer: {
-          subscribe: "Subscribe",
-          discount: "Get 10% off your first order",
-          support: "Support",
-          contactInfo: "111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.",
-          account: "Account",
-          manageAccount: "Manage My Account",
-          orders: "Orders",
-          addresses: "Addresses",
-          paymentMethods: "Payment Methods",
-          wishlist: "Wishlist",
-          cart: "Cart",
-          logout: "Logout",
-        },
-      },
-      es: {
-        header: {
-          title: "Exclusivo",
-        },
-        footer: {
-          subscribe: "Suscribirse",
-          discount: "Obtén 10% de descuento en tu primer pedido",
-          support: "Soporte",
-          contactInfo: "111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.",
-          account: "Cuenta",
-          manageAccount: "Administrar Mi Cuenta",
-          orders: "Pedidos",
-          addresses: "Direcciones",
-          paymentMethods: "Métodos de Pago",
-          wishlist: "Lista de Deseos",
-          cart: "Carrito",
-          logout: "Cerrar Sesión",
-        },
-      },
-      fr: {
-        header: {
-          title: "Exclusif",
-        },
-        footer: {
-          subscribe: "S'abonner",
-          discount: "Obtenez 10% de réduction sur votre première commande",
-          support: "Support",
-          contactInfo: "111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.",
-          account: "Compte",
-          manageAccount: "Gérer Mon Compte",
-          orders: "Commandes",
-          addresses: "Adresses",
-          paymentMethods: "Méthodes de Paiement",
-          wishlist: "Liste de Souhaits",
-          cart: "Panier",
-          logout: "Déconnexion",
-        },
-      },
-    };
-
-    const keys = key.split(".");
-    let value: Record<string, string> =
-      translations[currentLang as keyof typeof translations] || {};
-
-    for (const k of keys) {
-      if (value && typeof value === "object") {
-        value = value[k as keyof typeof value];
-      } else {
-        return key;
-      }
-    }
-
-    return typeof value === "string" ? value : key;
-  };
 
   const handleNewsletter = (e: React.FormEvent) => {
     e.preventDefault();

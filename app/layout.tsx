@@ -6,7 +6,7 @@ import Footer from "@/src/components/Footer";
 import { Toaster } from "react-hot-toast";
 import Providers from "@/src/components/providers/SessionProvider";
 import NavigationLoader from "@/src/components/NavigationLoader";
-import { LanguageProvider } from "@/src/contexts/LanguageContext";
+import ReduxProvider from "@/src/components/providers/ReduxProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <LanguageProvider>
+      <ReduxProvider>
         <Providers>
           <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -43,7 +43,7 @@ export default function RootLayout({
             <Toaster position="bottom-right" />
           </body>
         </Providers>
-      </LanguageProvider>
+      </ReduxProvider>
     </html>
   );
 }
