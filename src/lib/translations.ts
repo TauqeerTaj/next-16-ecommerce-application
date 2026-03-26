@@ -2,7 +2,8 @@ export const translations = {
   en: {
     header: {
       title: "Exclusive",
-      summerSale: "Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%",
+      summerSale:
+        "Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%",
       shopNow: "ShopNow",
       home: "Home",
       contact: "Contact",
@@ -12,6 +13,11 @@ export const translations = {
       wishlist: "Wishlist",
       cart: "Cart",
       account: "Account",
+      manageAccount: "Manage My Account",
+      myOrders: "My Orders",
+      myCancellations: "My Cancellations",
+      myReviews: "My Reviews",
+      logout: "Logout",
     },
     footer: {
       subscribe: "Subscribe",
@@ -31,7 +37,8 @@ export const translations = {
   es: {
     header: {
       title: "Exclusivo",
-      summerSale: "Venta de Verano Para Todos los Trajes de Baño y Envío Express Gratis - 50% DESC",
+      summerSale:
+        "Venta de Verano Para Todos los Trajes de Baño y Envío Express Gratis - 50% DESC",
       shopNow: "CompraAhora",
       home: "Inicio",
       contact: "Contacto",
@@ -41,6 +48,11 @@ export const translations = {
       wishlist: "Lista de Deseos",
       cart: "Carrito",
       account: "Cuenta",
+      manageAccount: "Administrar Mi Cuenta",
+      myOrders: "Mis Pedidos",
+      myCancellations: "Mis Cancelaciones",
+      myReviews: "Mis Reseñas",
+      logout: "Cerrar Sesión",
     },
     footer: {
       subscribe: "Suscribirse",
@@ -60,7 +72,8 @@ export const translations = {
   fr: {
     header: {
       title: "Exclusif",
-      summerSale: "Vente d'Été Pour Tous les Maillots de Bain et Livraison Express Gratuite - 50% DE RÉDUCTION",
+      summerSale:
+        "Vente d'Été Pour Tous les Maillots de Bain et Livraison Express Gratuite - 50% DE RÉDUCTION",
       shopNow: "AchetezMaintenant",
       home: "Accueil",
       contact: "Contact",
@@ -70,6 +83,11 @@ export const translations = {
       wishlist: "Liste de Souhaits",
       cart: "Panier",
       account: "Compte",
+      manageAccount: "Gérer Mon Compte",
+      myOrders: "Mes Commandes",
+      myCancellations: "Mes Annulations",
+      myReviews: "Mes Avis",
+      logout: "Déconnexion",
     },
     footer: {
       subscribe: "S'abonner",
