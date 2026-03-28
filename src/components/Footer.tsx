@@ -2,21 +2,15 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { useTranslation } from "@/src/hooks/useTranslation";
 
 export default function Footer() {
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const { t } = useTranslation();
-  const pathname = usePathname();
 
   const handleNewsletter = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Newsletter subscription:", newsletterEmail);
-  };
-
-  const handleAccountClick = () => {
-    console.log("Account clicked");
   };
 
   return (

@@ -9,7 +9,6 @@ export default function LoadingSpinner() {
     // Listen for navigation events
     const handleStart = () => setIsLoading(true);
     const handleComplete = () => setIsLoading(false);
-    const handleError = () => setIsLoading(false);
 
     // Add event listeners for navigation
     window.addEventListener("beforeunload", handleStart);
