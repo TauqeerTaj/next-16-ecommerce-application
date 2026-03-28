@@ -118,10 +118,6 @@ const handler = NextAuth({
           if (!user && name) {
             console.log("Signup attempt - creating new user");
 
-            // Hash password
-            const salt = await bcrypt.genSalt(12);
-            const hashedPassword = await bcrypt.hash(password, salt);
-
             // Create new user
             const newUser = new User({
               name,
