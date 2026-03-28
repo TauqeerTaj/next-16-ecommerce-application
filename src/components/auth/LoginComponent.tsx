@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
-export default function LoginComponent() {
+function LoginContent() {
   const [formData, setFormData] = useState({
     emailOrPhone: "",
     password: "",
@@ -164,4 +164,19 @@ export default function LoginComponent() {
       </main>
     </>
   );
+}
+
+export default function LoginComponent() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsClient(true), 0);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!isClient) {
+    return <div>Loading...</div>;
+  }
+
+  return <LoginContent />;
 }

@@ -1,11 +1,11 @@
-"use client";
+import LoginWrapper from "@/src/components/auth/LoginWrapper";
 
-import LoginComponent from "@/src/components/auth/LoginComponent";
+export const dynamic = "force-dynamic";
 
 export default function Login() {
   return (
     <div className="min-h-screen ">
-      <LoginComponent />
+      <LoginWrapper />
     </div>
   );
 }
