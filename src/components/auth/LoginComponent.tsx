@@ -2,17 +2,24 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
 function LoginContent() {
+  const { data: session, status } = useSession();
   const [formData, setFormData] = useState({
     emailOrPhone: "",
     password: "",
   });
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    if (status !== "loading" && session) {
+      router.push("/");
+    }
+  }, [session, status, router]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -22,14 +29,7 @@ function LoginContent() {
   const handleGoogleSignIn = async () => {
     console.log("Google sign-in clicked");
     try {
-      const result = await signIn("google", { redirect: false });
-      console.log("Google sign-in result:", result);
-      if (result?.error) {
-        toast.error(result.error);
-      } else {
-        toast.success("Google sign-in successful!");
-        router.push("/");
-      }
+      await signIn("google", { callbackUrl: "/" });
     } catch (error) {
       console.error("Google sign-in error:", error);
       toast.error("Google sign-in failed");
