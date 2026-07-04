@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -16,6 +16,7 @@ export default function Header() {
   const { t, currentLang } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
   const pathname = usePathname();
+  const router = useRouter();
   const { data: session } = useSession();
 
   const handleSearch = () => {
@@ -118,7 +119,12 @@ export default function Header() {
               </Link>
               <button
                 onClick={async () => {
-                  await signOut({ callbackUrl: "/auth/signup" });
+                  if (session) {
+                    await signOut();
+                    router.push("/auth/signup");
+                  } else {
+                    router.push("/auth/signup");
+                  }
                 }}
                 className={`font-medium hover:text-gray-900 ${
                   isActiveRoute("/auth/signup") ?
@@ -126,16 +132,7 @@ export default function Header() {
                   : "text-gray-700"
                 } bg-transparent border-none cursor-pointer`}
               >
-                <Link
-                  href="/auth/signup"
-                  className={`font-medium hover:text-gray-900 ${
-                    isActiveRoute("/auth/signup") ?
-                      "text-gray-900 border-b-2 border-gray-900"
-                    : "text-gray-700"
-                  }`}
-                >
-                  {t("header.signUp")}
-                </Link>
+                {t("header.signUp")}
               </button>
             </nav>
 
