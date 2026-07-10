@@ -8,6 +8,8 @@ import { Toaster } from "react-hot-toast";
 import Providers from "@/src/components/providers/SessionProvider";
 import NavigationLoader from "@/src/components/NavigationLoader";
 import ReduxProvider from "@/src/components/providers/ReduxProvider";
+import ChakraProvider from "@/src/components/providers/ChakraProvider";
+import EmotionRegistry from "@/src/components/providers/EmotionRegistry";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,21 +34,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ReduxProvider>
-        <Providers>
-          <body
-            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-          >
-            <Suspense fallback={null}>
-              <NavigationLoader />
-            </Suspense>
-            <Header />
-            {children}
-            <Footer />
-            <Toaster position="bottom-right" />
-          </body>
-        </Providers>
-      </ReduxProvider>
+      <head>
+        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <ReduxProvider>
+          <Providers>
+            <EmotionRegistry>
+              <ChakraProvider>
+                <Suspense fallback={null}>
+                  <NavigationLoader />
+                </Suspense>
+                <Header />
+                {children}
+                <Footer />
+                <Toaster position="bottom-right" />
+              </ChakraProvider>
+            </EmotionRegistry>
+          </Providers>
+        </ReduxProvider>
+      </body>
     </html>
   );
 }

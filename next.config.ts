@@ -27,6 +27,8 @@ const nextConfig: NextConfig = {
     ],
     unoptimized: true, // Disable image optimization for localhost
   },
+  experimental: {
+  },
 };
 
 export default nextConfig;
