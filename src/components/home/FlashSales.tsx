@@ -267,7 +267,7 @@ function FlashSales() {
     <>
     <div className="mb-5">
       <span className="border-l-15 border-red-500 py-2 mr-2 rounded-sm"></span>
-      <span className="text-red-500 font-bold">Today's</span>
+      <span className="text-red-500 font-bold">Today&apos;s</span>
     </div>
     <Stack gap="4">
       <Carousel.Root slideCount={products.length} slidesPerPage={4} gap="4" loop autoplay={{ delay: 3000 }}>
