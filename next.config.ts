@@ -28,7 +28,6 @@ const nextConfig: NextConfig = {
     unoptimized: true, // Disable image optimization for localhost
   },
   experimental: {
-    ssr: true, // Ensure SSR is enabled
   },
 };
 
