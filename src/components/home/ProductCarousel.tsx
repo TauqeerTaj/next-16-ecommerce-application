@@ -1,9 +1,10 @@
 "use client";
 
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+
 
 interface Banner {
   _id: string;
@@ -35,14 +36,14 @@ export default function ProductCarousel() {
 
   if (loading) {
     return (
-      <div className="flex-1 relative p-8 flex items-center justify-center">
+      <div className="flex-1 relative px-8 flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
       </div>
     );
   }
 
   return (
-    <div className="flex-1 relative p-8">
+    <div className="flex-1 relative p-8 pb-0 carousel-container">
       <Carousel>
         {banners.length > 0 ?
           banners.map((banner) => (

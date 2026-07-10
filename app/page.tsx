@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import CategoriesSidebar from "@/src/components/home/CategoriesSidebar";
 import ProductCarousel from "@/src/components/home/ProductCarousel";
+import FlashSales from "@/src/components/home/FlashSales";
 
 export default function Home() {
   const { data: session, status } = useSession();
@@ -33,13 +34,21 @@ export default function Home() {
   // User is authenticated, show home page
   return (
     <main className="min-h-screen bg-white max-w-7xl mx-auto">
-      <div className="flex">
+      <div className="flex mb-32">
         {/* Left Sidebar */}
         <CategoriesSidebar />
 
-        {/* Right Carousel */}
-        <ProductCarousel />
+        {/* Right Content */}
+        <div className="flex-1">
+          {/* Product Carousel */}
+          <ProductCarousel />
+        </div>
       </div>
+      <div className="px-8">
+        {/* Flash Sales Section */}
+        <FlashSales />
+      </div>
+      <hr className="my-10 mx-8 border-gray-200" />
     </main>
   );
 }
