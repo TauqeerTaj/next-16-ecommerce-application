@@ -2,7 +2,7 @@
 
 import { useSelector } from "react-redux";
 import { RootState } from "@/src/store";
-import { translations } from "@/src/lib/translations";
+import { translations } from "@/lib/translations";
 
 export function useTranslation() {
   const currentLang = useSelector(

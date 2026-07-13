@@ -1,8 +1,8 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
-import connectDB from "@/lib/mongodb";
-import User from "@/lib/models/User";
+import connectDB from "@/lib/db/db";
+import User from "@/models/User";
 import bcrypt from "bcryptjs";
 
 // Debug environment variables
