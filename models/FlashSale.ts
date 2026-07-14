@@ -15,13 +15,29 @@ const FlashSaleSchema = new Schema<IFlashSaleProduct>(
       type: Number,
       required: [true, "Original price is required"],
     },
+    description: {
+      type: String,
+      required: [true, "Description is required"],
+    },
     discount: {
       type: Number,
       required: [true, "Discount is required"],
     },
+    images: {
+      type: [String],
+      required: [true, "Images are required"],
+    },
     imageUrl: {
       type: String,
       required: [true, "Image URL is required"],
+    },
+    colors: {
+      type: [String],
+      required: [true, "Colors are required"],
+    },
+    sizes: {
+      type: [String],
+      required: [true, "Sizes are required"],
     },
     active: {
       type: Boolean,
