@@ -5,6 +5,9 @@ export interface DetailProduct {
     name: string;
     category: string; // for breadcrumb, e.g. "Gaming"
     images: string[]; // gallery, first is main by default
+    imageUrl: string;
+    active: boolean;
+    order: number;
     rating: number;
     reviewCount: number;
     inStock: boolean;

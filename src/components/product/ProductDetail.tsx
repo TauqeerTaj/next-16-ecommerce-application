@@ -12,12 +12,14 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { LuHeart, LuMinus, LuPlus, LuTruck, LuRefreshCw, LuStar } from "react-icons/lu";
-// import Breadcrumb from "./Breadcrumb";
+// import 
+//  from "./Breadcrumb";
 // import { Product } from "@/types/Product";
 import { IFlashSaleProduct } from "@/types/FlashSaleProduct";
+import { DetailProduct } from "@/types/DetailProduct";
 
 
-const ProductDetail = ({ product }: { product: IFlashSaleProduct }) => {
+const ProductDetail = ({ product }: { product: IFlashSaleProduct | DetailProduct }) => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedColor, setSelectedColor] = useState(0);
   const [selectedSize, setSelectedSize] = useState(

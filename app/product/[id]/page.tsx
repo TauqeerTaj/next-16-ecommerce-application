@@ -2,6 +2,7 @@ import connectDB from "@/lib/db/db";
 // import ProductModel from "@/models/Product";
 import FlashSale from "@/models/FlashSale"
 import ProductDetail from "@/src/components/product/ProductDetail";
+import { getProductDetail } from "@/lib/db_requests/getProductDetail";
 // import RelatedItems from "@/components/product/RelatedItems";
 import { IFlashSaleProduct } from "@/types/FlashSaleProduct";
 // import { RelatedProduct } from "@/types/RelatedProduct";
@@ -28,11 +29,14 @@ async function getProduct(id: string): Promise<IFlashSaleProduct | null> {
 
 export default async function ProductDetailPage({
     params,
+    searchParams,
 }: {
     params: Promise<{ id: string }>;
+    searchParams: Promise<{ type: string }>;
 }) {
     const { id } = await params;
-    const product = await getProduct(id);
+    const { type } = await searchParams;
+    const product = await getProductDetail(id, type);
 
     if (!product) {
         notFound();
