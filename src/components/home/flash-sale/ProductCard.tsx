@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaHeart, FaEye, FaStar } from "react-icons/fa";
 import { IFlashSaleProduct } from "@/types/FlashSaleProduct";
 
@@ -21,9 +22,12 @@ export default function ProductCard({ data }: { data: IFlashSaleProduct }) {
           <button className="w-8 h-8 flex items-center justify-center rounded-full bg-white text-gray-600 hover:bg-gray-100 cursor-pointer">
             <FaHeart size={14} />
           </button>
-          <button className="w-8 h-8 flex items-center justify-center rounded-full bg-white text-gray-600 hover:bg-gray-100 cursor-pointer">
+          <Link
+            href={`/product/${data._id}?type=flash-sale`}
+            className="w-8 h-8 flex items-center justify-center rounded-full bg-white text-gray-600 hover:bg-gray-100 cursor-pointer"
+          >
             <FaEye size={14} />
-          </button>
+          </Link>
         </div>
 
         <button className="absolute bottom-2 left-2 right-2 bg-black text-white text-sm py-2 rounded-md opacity-0 translate-y-2 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-gray-800 cursor-pointer">
