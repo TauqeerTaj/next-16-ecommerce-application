@@ -9,10 +9,11 @@ export interface IFlashSaleProduct {
   discount: number;
   images: string[];
   imageUrl: string;
-  colors: DetailProductColor[];
+  colors: { name: string; hex: string }[];
   sizes: string[];
   active: boolean;
   order: number;
   reviewCount: number;
   rating: number;
+  category: string;
 }

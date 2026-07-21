@@ -32,12 +32,19 @@ const FlashSaleSchema = new Schema<IFlashSaleProduct>(
       required: [true, "Image URL is required"],
     },
     colors: {
-      type: [String],
+      type: [{
+        name: { type: String, required: true },
+        hex: { type: String, required: true }
+      }],
       required: [true, "Colors are required"],
     },
     sizes: {
       type: [String],
       required: [true, "Sizes are required"],
+    },
+    category: {
+      type: String,
+      required: [true, "Category is required"],
     },
     active: {
       type: Boolean,

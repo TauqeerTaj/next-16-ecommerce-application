@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ProductCard from "@/src/components/flash-sales/ProductCard";
+import ProductCard from "@/src/components/home/flash-sale/ProductCard";
 import { getFlashSales } from "@/lib/db_requests/getFlashSales";
 
 interface FlashSaleProduct {

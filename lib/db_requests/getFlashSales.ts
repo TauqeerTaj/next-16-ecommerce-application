@@ -1,3 +1,5 @@
+"use server"
+
 import connectDB from "@/lib/db/db";
 import FlashSale from "@/models/FlashSale";
 

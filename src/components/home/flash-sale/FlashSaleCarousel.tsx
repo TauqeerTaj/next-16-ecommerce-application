@@ -14,8 +14,8 @@ import {
     Text,
 } from "@chakra-ui/react"
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu"
-import ProductCard from "@/src/components/flash-sales/ProductCard";
-import CountDownTimer from "@/src/components/flash-sales/CountDownTimer";
+import ProductCard from "@/src/components/home/flash-sale/ProductCard";
+import CountDownTimer from "@/src/components/home/flash-sale/CountDownTimer";
 import { IFlashSaleProduct } from "@/types/FlashSaleProduct";
 
 interface FlashSalesProps {
@@ -71,7 +71,7 @@ const FlashSaleCarousel = ({ products }: FlashSalesProps) => {
                 </Carousel.Root>
             </Stack>
             <div className="text-center mt-15">
-                <Link href="/flash-sales">
+                <Link href="/all-flash-sales">
                     <Button size="lg" className="bg-red-500 text-white">View All Products</Button>
                 </Link>
             </div>
