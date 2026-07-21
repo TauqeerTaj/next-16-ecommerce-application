@@ -1,19 +1,7 @@
 import Link from "next/link";
 import ProductCard from "@/src/components/home/flash-sale/ProductCard";
 import { getFlashSales } from "@/lib/db_requests/getFlashSales";
-
-interface FlashSaleProduct {
-  _id: string;
-  name: string;
-  imageUrl: string;
-  discount: number;
-  originalPrice: number;
-  price: number;
-  rating: number;
-  reviewCount: number;
-  order: number;
-  active: boolean;
-}
+import { IFlashSaleProduct } from "@/types/FlashSaleProduct";
 
 export const metadata = {
   title: "Flash Sales | YourStore",
@@ -42,7 +30,7 @@ export default async function FlashSalesPage() {
         </div>
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-          {products.map((product:FlashSaleProduct) => (
+          {products.map((product:IFlashSaleProduct) => (
             <ProductCard key={product._id} data={product} />
           ))}
         </div>
