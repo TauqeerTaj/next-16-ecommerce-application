@@ -22,11 +22,11 @@ const RelatedProductCard = ({ product }: { product: IFlashSaleProduct | DetailPr
             -{product.discount}%
           </Box>
         )}
-        <HStack position="absolute" top="2" right="2" gap="1">
-          <IconButton aria-label="Wishlist" size="xs" rounded="full" bg="white" variant="plain">
+        <HStack position="absolute" top="2" right="2" gap="1" flexDir="column">
+          <IconButton aria-label="Wishlist" size="xs" rounded="full" bg="white" variant="plain" _hover={{ bg: "gray.100" }}>
             <LuHeart />
           </IconButton>
-          <IconButton aria-label="Quick view" size="xs" rounded="full" bg="white" variant="plain">
+          <IconButton aria-label="Quick view" size="xs" rounded="full" bg="white" variant="plain" _hover={{ bg: "gray.100" }}>
             <LuEye />
           </IconButton>
         </HStack>
