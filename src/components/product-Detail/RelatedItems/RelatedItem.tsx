@@ -12,7 +12,7 @@ const RelatedItems = ({ products }: { products: (IFlashSaleProduct | DetailProdu
   return (
     <Box mt="16">
       <HStack mb="6">
-        <Box w="1" h="10" bg="red.500" rounded="sm" />
+        <Box w="4" h="9" bg="red.500" rounded="sm" />
         <Text color="red.500" fontWeight="bold">Related Item</Text>
       </HStack>
 

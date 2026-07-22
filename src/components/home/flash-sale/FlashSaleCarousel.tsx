@@ -1,15 +1,11 @@
 "use client"
 import Link from "next/link"
 import {
-    Badge,
     Box,
     Button,
     Carousel,
     HStack,
-    Icon,
     IconButton,
-    Image,
-    Span,
     Stack,
     Text,
 } from "@chakra-ui/react"

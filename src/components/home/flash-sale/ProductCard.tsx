@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaHeart, FaEye, FaStar } from "react-icons/fa";
+import { LuEye, LuHeart, LuStar } from "react-icons/lu";
 import { IFlashSaleProduct } from "@/types/FlashSaleProduct";
 
 
@@ -20,13 +20,13 @@ export default function ProductCard({ data }: { data: IFlashSaleProduct }) {
 
         <div className="absolute top-2 right-2 flex flex-col gap-2">
           <button className="w-8 h-8 flex items-center justify-center rounded-full bg-white text-gray-600 hover:bg-gray-100 cursor-pointer">
-            <FaHeart size={14} />
+            <LuHeart size={14} />
           </button>
           <Link
             href={`/product/${data._id}?type=flash-sale`}
             className="w-8 h-8 flex items-center justify-center rounded-full bg-white text-gray-600 hover:bg-gray-100 cursor-pointer"
           >
-            <FaEye size={14} />
+            <LuEye size={14} />
           </Link>
         </div>
 
@@ -44,7 +44,7 @@ export default function ProductCard({ data }: { data: IFlashSaleProduct }) {
         <div className="flex items-center gap-1">
           <div className="flex gap-1">
             {[...Array(5)].map((_, i) => (
-              <FaStar
+              <LuStar
                 key={i}
                 size={12}
                 className={i < Math.floor(data.rating) ? "text-orange-400" : "text-gray-300"}
