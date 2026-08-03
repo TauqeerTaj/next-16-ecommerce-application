@@ -25,7 +25,7 @@ export default async function ProductDetailPage({
     return (
         <Box maxW="1200px" mx="auto" px={{ base: "4", md: "8" }} py="6">
             <ProductDetail product={product} />
-            <RelatedItems products={relatedItems || []} />
+            <RelatedItems products={relatedItems || []} type= {type}/>
         </Box>
     );
 }

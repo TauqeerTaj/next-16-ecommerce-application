@@ -3,11 +3,12 @@
 
 import { Box, Button, HStack, IconButton, Image, Text, Icon } from "@chakra-ui/react";
 import { LuEye, LuHeart, LuStar } from "react-icons/lu";
+import Link from "next/link";
 import { useState } from "react";
 import { IFlashSaleProduct } from "@/types/FlashSaleProduct";
 import { DetailProduct } from "@/types/DetailProduct";
 
-const RelatedProductCard = ({ product }: { product: IFlashSaleProduct | DetailProduct }) => {
+const RelatedProductCard = ({ product, type, key }: { product: IFlashSaleProduct | DetailProduct, type: string, key: string }) => {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -27,7 +28,12 @@ const RelatedProductCard = ({ product }: { product: IFlashSaleProduct | DetailPr
             <LuHeart />
           </IconButton>
           <IconButton aria-label="Quick view" size="xs" rounded="full" bg="white" variant="plain" _hover={{ bg: "gray.100" }}>
-            <LuEye />
+            <Link
+              href={`/product/${product._id}?type=${type}`}
+              className="w-8 h-8 flex items-center justify-center rounded-full bg-white text-gray-600 hover:bg-gray-100 cursor-pointer"
+            >
+              <LuEye />
+            </Link>
           </IconButton>
         </HStack>
         <Image src={product.imageUrl} alt={product.name} maxH="140px" objectFit="contain" />
@@ -49,7 +55,7 @@ const RelatedProductCard = ({ product }: { product: IFlashSaleProduct | DetailPr
         )}
       </Box>
 
-      <Text mt="3" fontSize="sm">{product.name}</Text>
+      <Text mt="3" fontSize="sm" fontWeight="bold">{product.name}</Text>
       <HStack gap="2" mt="1">
         <Text fontWeight="semibold" color="red.500">${product.price}</Text>
         {product.originalPrice && (
