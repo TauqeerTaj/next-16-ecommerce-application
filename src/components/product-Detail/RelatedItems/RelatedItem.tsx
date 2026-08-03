@@ -1,12 +1,11 @@
 // components/product/RelatedItems.tsx
 import { Box, Grid, HStack, Text } from "@chakra-ui/react";
-import Link from "next/link";
 import { DetailProduct } from "@/types/DetailProduct";
 import { IFlashSaleProduct } from "@/types/FlashSaleProduct";
 import RelatedProductCard from "./RelatedProductCard";
 
 
-const RelatedItems = ({ products }: { products: (IFlashSaleProduct | DetailProduct)[] }) => {
+const RelatedItems = ({ products, type }: { products: (IFlashSaleProduct | DetailProduct)[], type: string }) => {
   if (products.length === 0) return null;
 
   return (
@@ -18,9 +17,7 @@ const RelatedItems = ({ products }: { products: (IFlashSaleProduct | DetailProdu
 
       <Grid templateColumns={{ base: "1fr", sm: "repeat(2, 1fr)", md: "repeat(4, 1fr)" }} gap="6">
         {products.map((product) => (
-          <Link key={product._id} href={`/product/${product._id}`}>
-            <RelatedProductCard product={product} />
-          </Link>
+            <RelatedProductCard product={product} type={type} key={product._id}/>
         ))}
       </Grid>
     </Box>
